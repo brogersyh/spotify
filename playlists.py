@@ -22,9 +22,12 @@ def save_playlist(playlist):
         file.write('# {} [:arrow_forward:]({})\n\n'.format(
              playlist['name'],
              playlist['external_urls']['spotify']))
-        # Cover image
-        file.write('<img src="{}" style="float: right;">\n\n'.format(
-            playlist['images'][0]['url']))
+        # Details
+        file.write('Created by: [{}]({}) · {} songs, {}\n\n'.format(
+            playlist['owner']['id'],
+            playlist['owner']['external_urls']['spotify'],
+            str(playlist['tracks']['total']),
+            playlist_duration(playlist)))
         # Tracks
         for i, item in enumerate(playlist['tracks']['items']):
             track = item['track']
@@ -32,12 +35,6 @@ def save_playlist(playlist):
                 str(i + 1),
                 track['artists'][0]['name'],
                 track['name']))
-        # Details
-        file.write('\n---\n\nCreated by: [{}]({}) · {} songs, {}'.format(
-            playlist['owner']['id'],
-            playlist['owner']['external_urls']['spotify'],
-            str(playlist['tracks']['total']),
-            playlist_duration(playlist)))
 
 def playlist_duration(playlist):
     duration = 0
