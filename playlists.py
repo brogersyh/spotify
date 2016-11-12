@@ -19,15 +19,14 @@ def save_playlist(playlist):
     path = os.path.join('playlists', playlist['name'] + '.md')
     with open(path, 'w', encoding='utf-8') as file:
         # Header
-        file.write('# {} [:arrow_forward:]({})\n\n'.format(
-             playlist['name'],
-             playlist['external_urls']['spotify']))
+        file.write('# {}\n\n'.format(playlist['name']))
         # Details
-        file.write('Created by: [{}]({}) · {} songs, {}\n\n'.format(
+        file.write('Created by [{}]({}) · {} songs, {} · [:arrow_forward: Play]({})\n\n'.format(
             playlist['owner']['id'],
             playlist['owner']['external_urls']['spotify'],
             str(playlist['tracks']['total']),
-            playlist_duration(playlist)))
+            playlist_duration(playlist),
+            playlist['external_urls']['spotify']))
         # Tracks
         file.write('&#35;|Artist|Song\n')
         file.write('----:|:-----|:---\n')

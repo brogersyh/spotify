@@ -1,6 +1,6 @@
-# Best of 2015 - Metal [:arrow_forward:](http://open.spotify.com/user/erengy/playlist/7IuQcaTey2NBn4uGDPDKep)
+# Best of 2015 - Metal
 
-Created by: [erengy](http://open.spotify.com/user/erengy) · 26 songs, 2:41:01
+Created by [erengy](http://open.spotify.com/user/erengy) · 26 songs, 2:41:01 · [:arrow_forward: Play](http://open.spotify.com/user/erengy/playlist/7IuQcaTey2NBn4uGDPDKep)
 
 &#35;|Artist|Song
 ----:|:-----|:---

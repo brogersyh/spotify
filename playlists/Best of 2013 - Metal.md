@@ -1,6 +1,6 @@
-# Best of 2013 - Metal [:arrow_forward:](http://open.spotify.com/user/erengy/playlist/5bI0Xbc2Dj9WrcmMHcDRE8)
+# Best of 2013 - Metal
 
-Created by: [erengy](http://open.spotify.com/user/erengy) · 14 songs, 1:38:25
+Created by [erengy](http://open.spotify.com/user/erengy) · 14 songs, 1:38:25 · [:arrow_forward: Play](http://open.spotify.com/user/erengy/playlist/5bI0Xbc2Dj9WrcmMHcDRE8)
 
 &#35;|Artist|Song
 ----:|:-----|:---

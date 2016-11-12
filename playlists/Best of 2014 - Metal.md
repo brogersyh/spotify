@@ -1,6 +1,6 @@
-# Best of 2014 - Metal [:arrow_forward:](http://open.spotify.com/user/erengy/playlist/3NXFfa3g2SU2Vp1UtI0PPH)
+# Best of 2014 - Metal
 
-Created by: [erengy](http://open.spotify.com/user/erengy) · 21 songs, 2:28:19
+Created by [erengy](http://open.spotify.com/user/erengy) · 21 songs, 2:28:19 · [:arrow_forward: Play](http://open.spotify.com/user/erengy/playlist/3NXFfa3g2SU2Vp1UtI0PPH)
 
 &#35;|Artist|Song
 ----:|:-----|:---
