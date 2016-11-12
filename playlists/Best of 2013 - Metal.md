@@ -2,7 +2,7 @@
 
 Created by: [erengy](http://open.spotify.com/user/erengy) · 14 songs, 1:38:25
 
-#|Artist|Song
+&#35;|Artist|Song
 -:|:-|:-
 1|Keldian|The Silfen Paths
 2|Enshine|Cinders
