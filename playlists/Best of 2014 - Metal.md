@@ -3,7 +3,7 @@
 Created by: [erengy](http://open.spotify.com/user/erengy) · 21 songs, 2:28:19
 
 &#35;|Artist|Song
--:|:-|:-
+----:|:-----|:---
 1|Evergrey|The Grand Collapse
 2|Chrome Division|Lady of Perpetual Sorrow
 3|Primal Fear|One Night in December
