@@ -29,9 +29,10 @@ def save_playlist(playlist):
             str(playlist['tracks']['total']),
             playlist_duration(playlist)))
         # Tracks
+        file.write('#|Artist|Song\n-:|:-|:-\n')
         for i, item in enumerate(playlist['tracks']['items']):
             track = item['track']
-            file.write('{}. {} - {}\n'.format(
+            file.write('{}|{}|{}\n'.format(
                 str(i + 1),
                 track['artists'][0]['name'],
                 track['name']))
