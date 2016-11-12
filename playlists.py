@@ -33,14 +33,18 @@ def save_playlist(playlist):
                 track['artists'][0]['name'],
                 track['name']))
         # Details
-        duration = 0
-        for item in playlist['tracks']['items']:
-            duration += item['track']['duration_ms']
         file.write('\n---\n\nCreated by: [{}]({}) · {} songs, {}'.format(
             playlist['owner']['id'],
             playlist['owner']['external_urls']['spotify'],
             str(playlist['tracks']['total']),
-            str(datetime.timedelta(milliseconds=duration))))
+            playlist_duration(playlist)))
+
+def playlist_duration(playlist):
+    duration = 0
+    for item in playlist['tracks']['items']:
+        duration += item['track']['duration_ms']
+    duration = (duration - (duration % 1000)) / 1000
+    return str(datetime.timedelta(seconds=duration))
 
 def main():
     if len(sys.argv) > 4:
