@@ -11,6 +11,8 @@ def set_environment(client_id, client_secret, redirect_uri):
     os.environ['SPOTIPY_REDIRECT_URI'] = redirect_uri
 
 def cache_playlist(playlist):
+    if not os.path.exists('cache'):
+        os.makedirs('cache')
     path = os.path.join('cache', playlist['id'] + '.json')
     with open(path, 'w', encoding='utf-8') as file:
         file.write(json.dumps(playlist, indent=4))
@@ -53,26 +55,35 @@ def main():
         print('Usage: python playlists.py [username] [client_id] [client_secret] [redirect_uri]')
         sys.exit()
 
-    token = util.prompt_for_user_token(username)
+    token = util.prompt_for_user_token(username, scope='playlist-read-private')
 
     if token:
         sp = spotipy.Spotify(auth=token)
-        playlists = sp.user_playlists(username)
-        for playlist in playlists['items']:
-            if playlist['owner']['id'] == username:
-                print('Found playlist: {} | {} tracks'.format(
-                    playlist['name'],
-                    playlist['tracks']['total']))
+        offset = 0
+        LIMIT = 50
+        while True:
+            playlists = sp.user_playlists(username, limit=LIMIT, offset=offset)
+            if len(playlists['items']) == 0:
+                break
 
-                result = sp.user_playlist(username, playlist['id'], fields='tracks,next')
-                tracks = result['tracks']
-                playlist['tracks']['items'] = tracks['items']
-                while tracks['next']:
-                    tracks = sp.next(tracks)
-                    playlist['tracks']['items'] += tracks['items']
+            for playlist in playlists['items']:
+                if playlist['owner']['id'] != username:
+                    print('diff username: ' + playlist['owner']['id'] + " for playlist " + playlist['name'])
+                else:
+                    print('Found playlist: {} | {} tracks'.format(
+                        playlist['name'],
+                        playlist['tracks']['total']))
 
-                cache_playlist(playlist)
-                save_playlist(playlist)
+                    result = sp.user_playlist(username, playlist['id'], fields='tracks,next')
+                    tracks = result['tracks']
+                    playlist['tracks']['items'] = tracks['items']
+                    while tracks['next']:
+                        tracks = sp.next(tracks)
+                        playlist['tracks']['items'] += tracks['items']
+
+                    cache_playlist(playlist)
+                    save_playlist(playlist)
+            offset += LIMIT
     else:
         print('Error: Cannot get token for', username)
 
